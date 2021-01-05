@@ -47,6 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => function ($model) {return '&euro;' . $model->prijs/100;}
             ],
             [
+                'attribute'=> 'bestemming',
                 'label'=> 'Bestemming',
                 'contentOptions'=> ['style' => 'width:200px; white-space: normal;'],
                 'format'=> 'raw',
