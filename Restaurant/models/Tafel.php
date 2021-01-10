@@ -30,7 +30,7 @@ class Tafel extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['vaste_tafel_id', 'reservering_id', 'bestelling_id', 'bon_id', 'aantal_plekken'], 'required'],
+            [['vaste_tafel_id', 'reservering_id', 'bon_id', 'aantal_plekken'], 'required'],
             [['vaste_tafel_id', 'reservering_id', 'bestelling_id', 'bon_id', 'aantal_plekken'], 'integer'],
         ];
     }
@@ -48,5 +48,17 @@ class Tafel extends \yii\db\ActiveRecord
             'bon_id' => 'Bon ID',
             'aantal_plekken' => 'Aantal Plekken',
         ];
+    }
+
+    #koppelling aan vaste tafels tabel om te kunnen kiezen welke tafel
+    public function getVasteTafels()
+    {
+        $this->hasOne(VasteTafel::className(), ['id' => 'vaste_tafel_id']);
+    }
+
+    #koppelling aan tabel reserveringen om een reservering aan een tafel te koppelen
+    public function getReservering()
+    {
+        $this->hasOne(Reservering::className(), ['id' => 'reservering_id']);
     }
 }

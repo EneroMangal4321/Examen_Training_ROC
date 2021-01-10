@@ -27,8 +27,14 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'vaste_tafel_id',
-            'reservering_id',
+            [ 
+                'attribute'=> 'vaste_tafel_id',
+                'value'=> function ($model) {return $model->vasteTafels->naam;}
+            ],
+            [
+                'attribute'=> 'reservering_id',
+                'value'=> function ($model) {return $model->Reservering->achternaam;},
+            ],
             'bestelling_id',
             'bon_id',
             'aantal_plekken',
