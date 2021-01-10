@@ -4,6 +4,9 @@ use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
 
+use app\models\Menu;
+use app\models\VasteTafel;
+
 /* @var $this yii\web\View */
 /* @var $model app\models\bestelling */
 /* @var $form yii\widgets\ActiveForm */
@@ -14,11 +17,11 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'gerecht_id')->dropDownList(ArrayHelper::map(menu::find()->select(['naam','type','prijs'])->all(), 'id', 'naam')); ?>
+    <?= $form->field($model, 'gerecht_id')->dropDownList(ArrayHelper::map(Menu::find()->all(), 'id', 'naam')); ?>
 
     <?= $form->field($model, 'drank_id')->textInput() ?>
 
-    <?= $form->field($model, 'tafel_id')->textInput() ?>
+    <?= $form->field($model, 'tafel_id')->dropDownList(ArrayHelper::map(VasteTafel::find()->all(), 'id', 'naam')); ?>
 
     <?= $form->field($model, 'afgeleverd')->dropDownList($geleverd) ?>
 
@@ -29,3 +32,5 @@ use yii\widgets\ActiveForm;
     <?php ActiveForm::end(); ?>
 
 </div>
+
+

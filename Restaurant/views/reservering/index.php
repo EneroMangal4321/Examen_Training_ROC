@@ -10,13 +10,7 @@ use yii\grid\GridView;
 $this->title = 'Reserveringen';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="navbar">
-    <a class="active" href="/site/index">Home</a>
-    <a href="/menu/index">Menu</a>
-    <a href="/tafel/index">Tafel</a>
-    <a href="/bestelling/index">Bestelling</a>
-    <a href="#about"><i>Andere pagina's toevoegen</i></a>
-</div>
+
 <div class="reservering-index">
 
     <h1><?= Html::encode($this->title) ?></h1>

@@ -4,14 +4,7 @@
 
 $this->title = 'My Yii Application';
 ?>
-<div class="navbar">
-    <a class="active" href="#home">Home</a>
-    <a href="/menu/index">Menu</a>
-    <a href="/tafel/index">Tafel</a>
-    <a href="/reservering/index">Reserveringen</a>
-    <a href="/bestelling/index">Bestelling</a>
-    <a href="#about"><i>Andere pagina's toevoegen</i></a>
-</div>
+
 <div class="site-index">
 
     <div class="jumbotron">

@@ -29,7 +29,7 @@ class Bestelling extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['gerecht_id', 'drank_id', 'tafel_id', 'afgeleverd'], 'required'],
+            [['tafel_id', 'afgeleverd'], 'required'],
             [['gerecht_id', 'drank_id', 'tafel_id'], 'integer'],
             [['afgeleverd'], 'safe']
         ];
@@ -54,6 +54,16 @@ class Bestelling extends \yii\db\ActiveRecord
         // echo "hallo";
         // echo $this->hasOne(bestelling::className(), ['gerecht_id'=>'']);
         return $this->hasMany(menu::className(), ['naam'=>'gerecht_id']);
+    }
+
+    public function getMenuItems()
+    {
+        return $this->hasMany(menu::find()->all(),['naam']);
+    }
+
+    public function getTafelNummer()
+    {
+        return $this->hasOne(vaste_tafel::find()->all(), ['id', 'naam']);
     }
     
 }

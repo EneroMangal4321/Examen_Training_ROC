@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'reservering_id',
             'bestelling_id',
             'bon_id',
-            //'aantal_plekken',
+            'aantal_plekken',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

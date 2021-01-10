@@ -10,13 +10,8 @@ use yii\grid\GridView;
 $this->title = 'Bestelling';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="navbar">
-    <a class="active" href="/site/index">Home</a>
-    <a href="/menu/index">Menu</a>
-    <a href="/tafel/index">Tafel</a>
-    <a href="/reservering/index">Reserveringen</a>
-    <a href="#about"><i>Andere pagina's toevoegen</i></a>
-</div>
+<?php $geleverd = [1=>'Nee', 2=>'Ja']?>
+
 <div class="bestelling-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
@@ -37,7 +32,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'gerecht_id',
             'drank_id',
             'tafel_id',
-            'afgeleverd',
+            [
+                'attribute'=> 'afgeleverd',
+                'value'=> function ($model) {return $model->Bestelling->afgeleverd;}
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

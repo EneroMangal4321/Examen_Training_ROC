@@ -50,4 +50,8 @@ class Menu extends \yii\db\ActiveRecord
     {
         return $this->hasOne(MenuType::className(), ['id' => 'type']);
     }
+    public function getGerecht()
+    {
+        return $this->hasMany(Gerecht::className(), ['id' => 'menu_id']);
+    }
 }
