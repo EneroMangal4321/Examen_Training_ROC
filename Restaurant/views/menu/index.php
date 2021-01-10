@@ -7,13 +7,14 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\MenuSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Index';
+$this->title = 'Menu';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="navbar">
     <a class="active" href="/site/index">Home</a>
     <a href="/reservering/index">Reserveringen</a>
     <a href="/tafel/index">Tafel</a>
+    <a href="/bestelling/index">Bestelling</a>
     <a href="#about"><i>Andere pagina's toevoegen</i></a>
 </div>
 <div class="menu-index">

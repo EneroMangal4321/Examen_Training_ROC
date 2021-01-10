@@ -16,15 +16,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'achternaam')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'email')->Input('email', ['maxlength' => true]) ?>
 
     <?= $form->field($model, 'telefoon_nummer')->textInput() ?>
 
     <?= $form->field($model, 'aantal_personen')->textInput() ?>
 
-    <?= $form->field($model, 'datum')->textInput() ?>
+    <?= $form->field($model, 'datum')->Input('date') ?>
 
-    <?= $form->field($model, 'tijdstip')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'tijdstip')->Input('time') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

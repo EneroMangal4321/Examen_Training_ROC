@@ -4,14 +4,14 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\tafel */
+/* @var $model app\models\bestelling */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Tafels', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Bestellings', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="tafel-view">
+<div class="bestelling-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -30,11 +30,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'vaste_tafel_id',
-            'reservering_id',
-            'bestelling_id',
-            'bon_id',
-            'aantal_plekken',
+            'gerecht_id',
+            'drank_id',
+            'tafel_id',
+            'afgeleverd',
         ],
     ]) ?>
 

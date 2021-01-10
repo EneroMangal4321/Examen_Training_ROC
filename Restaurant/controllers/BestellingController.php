@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\tafel;
-use app\models\tafelSearch;
+use app\models\bestelling;
+use app\models\bestellingSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * TafelController implements the CRUD actions for tafel model.
+ * BestellingController implements the CRUD actions for bestelling model.
  */
-class TafelController extends Controller
+class BestellingController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -30,12 +30,12 @@ class TafelController extends Controller
     }
 
     /**
-     * Lists all tafel models.
+     * Lists all bestelling models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new tafelSearch();
+        $searchModel = new bestellingSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class TafelController extends Controller
     }
 
     /**
-     * Displays a single tafel model.
+     * Displays a single bestelling model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -58,13 +58,13 @@ class TafelController extends Controller
     }
 
     /**
-     * Creates a new tafel model.
+     * Creates a new bestelling model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new tafel();
+        $model = new bestelling();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -76,7 +76,7 @@ class TafelController extends Controller
     }
 
     /**
-     * Updates an existing tafel model.
+     * Updates an existing bestelling model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -96,7 +96,7 @@ class TafelController extends Controller
     }
 
     /**
-     * Deletes an existing tafel model.
+     * Deletes an existing bestelling model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -110,15 +110,15 @@ class TafelController extends Controller
     }
 
     /**
-     * Finds the tafel model based on its primary key value.
+     * Finds the bestelling model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return tafel the loaded model
+     * @return bestelling the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = tafel::findOne($id)) !== null) {
+        if (($model = bestelling::findOne($id)) !== null) {
             return $model;
         }
 

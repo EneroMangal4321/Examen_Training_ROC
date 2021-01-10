@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\tafel;
-use app\models\tafelSearch;
+use app\models\vastetafel;
+use app\models\vastetafelSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * TafelController implements the CRUD actions for tafel model.
+ * VasteTafelController implements the CRUD actions for vastetafel model.
  */
-class TafelController extends Controller
+class VasteTafelController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -30,12 +30,12 @@ class TafelController extends Controller
     }
 
     /**
-     * Lists all tafel models.
+     * Lists all vastetafel models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new tafelSearch();
+        $searchModel = new vastetafelSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class TafelController extends Controller
     }
 
     /**
-     * Displays a single tafel model.
+     * Displays a single vastetafel model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -58,13 +58,13 @@ class TafelController extends Controller
     }
 
     /**
-     * Creates a new tafel model.
+     * Creates a new vastetafel model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new tafel();
+        $model = new vastetafel();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -76,7 +76,7 @@ class TafelController extends Controller
     }
 
     /**
-     * Updates an existing tafel model.
+     * Updates an existing vastetafel model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -96,7 +96,7 @@ class TafelController extends Controller
     }
 
     /**
-     * Deletes an existing tafel model.
+     * Deletes an existing vastetafel model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -110,15 +110,15 @@ class TafelController extends Controller
     }
 
     /**
-     * Finds the tafel model based on its primary key value.
+     * Finds the vastetafel model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return tafel the loaded model
+     * @return vastetafel the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = tafel::findOne($id)) !== null) {
+        if (($model = vastetafel::findOne($id)) !== null) {
             return $model;
         }
 

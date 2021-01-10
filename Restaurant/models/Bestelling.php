@@ -1,0 +1,59 @@
+<?php
+
+namespace app\models;
+
+use Yii;
+
+/**
+ * This is the model class for table "bestelling".
+ *
+ * @property int $id
+ * @property int $gerecht_id
+ * @property int $drank_id
+ * @property int $tafel_id
+ * @property int $afgeleverd
+ */
+class Bestelling extends \yii\db\ActiveRecord
+{
+    /**
+     * {@inheritdoc}
+     */
+    public static function tableName()
+    {
+        return 'bestelling';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function rules()
+    {
+        return [
+            [['gerecht_id', 'drank_id', 'tafel_id', 'afgeleverd'], 'required'],
+            [['gerecht_id', 'drank_id', 'tafel_id'], 'integer'],
+            [['afgeleverd'], 'safe']
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'gerecht_id' => 'Gerecht ID',
+            'drank_id' => 'Drank ID',
+            'tafel_id' => 'Tafel ID',
+            'afgeleverd' => 'Afgeleverd',
+        ];
+    }
+
+    public function getGerecht()
+    {
+        // echo "hallo";
+        // echo $this->hasOne(bestelling::className(), ['gerecht_id'=>'']);
+        return $this->hasMany(menu::className(), ['naam'=>'gerecht_id']);
+    }
+    
+}

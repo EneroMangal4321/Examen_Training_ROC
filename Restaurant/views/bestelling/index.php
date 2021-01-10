@@ -4,18 +4,25 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\tafelSearch */
+/* @var $searchModel app\models\bestellingSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Tafels';
+$this->title = 'Bestelling';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="tafel-index">
+<div class="navbar">
+    <a class="active" href="/site/index">Home</a>
+    <a href="/menu/index">Menu</a>
+    <a href="/tafel/index">Tafel</a>
+    <a href="/reservering/index">Reserveringen</a>
+    <a href="#about"><i>Andere pagina's toevoegen</i></a>
+</div>
+<div class="bestelling-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Tafel', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Bestelling', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -27,15 +34,13 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'vaste_tafel_id',
-            'reservering_id',
-            'bestelling_id',
-            'bon_id',
-            //'aantal_plekken',
+            'gerecht_id',
+            'drank_id',
+            'tafel_id',
+            'afgeleverd',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
-
 
 </div>

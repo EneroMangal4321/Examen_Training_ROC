@@ -4,12 +4,12 @@ namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\tafel;
+use app\models\bestelling;
 
 /**
- * tafelSearch represents the model behind the search form of `app\models\tafel`.
+ * bestellingSearch represents the model behind the search form of `app\models\bestelling`.
  */
-class tafelSearch extends tafel
+class bestellingSearch extends bestelling
 {
     /**
      * {@inheritdoc}
@@ -17,7 +17,8 @@ class tafelSearch extends tafel
     public function rules()
     {
         return [
-            [['id', 'vaste_tafel_id', 'reservering_id', 'bestelling_id', 'bon_id', 'aantal_plekken'], 'integer'],
+            [['id', 'gerecht_id', 'drank_id', 'tafel_id'], 'integer'],
+            [['afgeleverd'], 'safe'],
         ];
     }
 
@@ -39,7 +40,7 @@ class tafelSearch extends tafel
      */
     public function search($params)
     {
-        $query = tafel::find();
+        $query = bestelling::find();
 
         // add conditions that should always apply here
 
@@ -58,11 +59,10 @@ class tafelSearch extends tafel
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'vaste_tafel_id' => $this->vaste_tafel_id,
-            'reservering_id' => $this->reservering_id,
-            'bestelling_id' => $this->bestelling_id,
-            'bon_id' => $this->bon_id,
-            'aantal_plekken' => $this->aantal_plekken,
+            'gerecht_id' => $this->gerecht_id,
+            'drank_id' => $this->drank_id,
+            'tafel_id' => $this->tafel_id,
+            'afgeleverd' => $this->afgeleverd,
         ]);
 
         return $dataProvider;

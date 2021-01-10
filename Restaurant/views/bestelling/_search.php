@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\tafelSearch */
+/* @var $model app\models\bestellingSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="tafel-search">
+<div class="bestelling-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
@@ -17,15 +17,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'vaste_tafel_id') ?>
+    <?= $form->field($model, 'gerecht_id') ?>
 
-    <?= $form->field($model, 'reservering_id') ?>
+    <?= $form->field($model, 'drank_id') ?>
 
-    <?= $form->field($model, 'bestelling_id') ?>
+    <?= $form->field($model, 'tafel_id') ?>
 
-    <?= $form->field($model, 'bon_id') ?>
-
-    <?php // echo $form->field($model, 'aantal_plekken') ?>
+    <?= $form->field($model, 'afgeleverd') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

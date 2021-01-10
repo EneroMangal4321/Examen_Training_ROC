@@ -8,6 +8,7 @@ use Yii;
  * This is the model class for table "tafel".
  *
  * @property int $id
+ * @property int $vaste_tafel_id
  * @property int $reservering_id
  * @property int $bestelling_id
  * @property int $bon_id
@@ -29,8 +30,8 @@ class Tafel extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['reservering_id', 'bestelling_id', 'bon_id', 'aantal_plekken'], 'required'],
-            [['reservering_id', 'bestelling_id', 'bon_id', 'aantal_plekken'], 'integer'],
+            [['vaste_tafel_id', 'reservering_id', 'bestelling_id', 'bon_id', 'aantal_plekken'], 'required'],
+            [['vaste_tafel_id', 'reservering_id', 'bestelling_id', 'bon_id', 'aantal_plekken'], 'integer'],
         ];
     }
 
@@ -41,6 +42,7 @@ class Tafel extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'vaste_tafel_id' => 'Vaste Tafel ID',
             'reservering_id' => 'Reservering ID',
             'bestelling_id' => 'Bestelling ID',
             'bon_id' => 'Bon ID',
