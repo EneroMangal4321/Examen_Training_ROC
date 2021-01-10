@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             [ 
                 'attribute'=> 'vaste_tafel_id',
-                'value'=> function ($model) {return $model->vasteTafels->naam;}
+                'value'=> function ($model) {return $model->vasteTafels->naam;},
             ],
             [
                 'attribute'=> 'reservering_id',
