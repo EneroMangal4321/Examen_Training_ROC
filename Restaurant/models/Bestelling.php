@@ -3,6 +3,8 @@
 namespace app\models;
 
 use Yii;
+use app\models\Menu;
+use app\models\VasteTafel;
 
 /**
  * This is the model class for table "bestelling".
@@ -49,21 +51,36 @@ class Bestelling extends \yii\db\ActiveRecord
         ];
     }
 
+    #koppelling van bestelling naar de koppeltabel gerecht
     public function getGerecht()
     {
         // echo "hallo";
         // echo $this->hasOne(bestelling::className(), ['gerecht_id'=>'']);
-        return $this->hasMany(menu::className(), ['naam'=>'gerecht_id']);
+        return $this->hasMany(Gerecht::className(), ['bestelling_id'=>'id']);
     }
 
+    #koppelling van bestelling naar de tabel menu
     public function getMenuItems()
     {
-        return $this->hasMany(menu::find()->all(),['naam']);
+        return $this->hasOne(Menu::className(), ['id' => 'gerecht_id']);
     }
 
-    public function getTafelNummer()
+    #koppelling van bestelling naar de tabel menu om alleen de dranken op te halen
+    public function getDrankItems()
     {
-        return $this->hasOne(vaste_tafel::find()->all(), ['id', 'naam']);
+        return $this->hasMany(MenuType::className(), ['id', 'drank_id']);
+    }
+
+    #koppelling van bestelling naar de tabel vaste_tafel om de naar op te halen
+    public function getTafelNaam()
+    {
+        return $this->hasOne(VasteTafel::className(), ['id'=> 'tafel_id']);
+    }
+
+    #koppelling van bestellingen naar de tabel geleverd die kijkt of iets ja of nee als waarde heeft
+    public function getLevering()
+    {
+        return $this->hasOne(Geleverd::className(), ['id'=> 'afgeleverd']);
     }
     
 }

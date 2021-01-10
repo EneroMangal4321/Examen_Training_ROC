@@ -19,7 +19,7 @@ use app\models\VasteTafel;
 
     <?= $form->field($model, 'gerecht_id')->dropDownList(ArrayHelper::map(Menu::find()->all(), 'id', 'naam')); ?>
 
-    <?= $form->field($model, 'drank_id')->textInput() ?>
+    <?= $form->field($model, 'drank_id')->dropDownList(ArrayHelper::map(Menu::find()->all(), 'id', 'naam')); ?>
 
     <?= $form->field($model, 'tafel_id')->dropDownList(ArrayHelper::map(VasteTafel::find()->all(), 'id', 'naam')); ?>
 
