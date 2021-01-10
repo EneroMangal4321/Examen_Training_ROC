@@ -43,7 +43,7 @@ AppAsset::register($this);
             ['label' => 'Menu', 'url' => ['/menu/index']],
             ['label' => 'Tafels', 'url' => ['/tafel/index']],
             ['label' => 'Reserveren', 'url' => ['/reservering/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
+            ['label' => 'Bon Maken', 'url' => ['/bon/index']],
             ['label' => 'Contact', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
