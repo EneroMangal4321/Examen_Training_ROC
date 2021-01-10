@@ -29,14 +29,20 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             [ 
                 'attribute'=> 'vaste_tafel_id',
-                'value'=> function ($model) {return $model->vasteTafels->naam;},
+                'value'=> function ($model) {return $model->vasteTafels->naam;}
             ],
             [
                 'attribute'=> 'reservering_id',
-                'value'=> function ($model) {return $model->Reservering->achternaam;},
+                'value'=> function ($model) {return $model->reservering->achternaam;}
             ],
-            'bestelling_id',
-            'bon_id',
+            [
+                'attribute'=> 'bestelling_id',
+                'value'=> function ($model) {return $model->bestelling->id;}
+            ],
+            [
+                'attribute'=> 'bon_id',
+                'value'=> function ($model) {return $model->reservering->achternaam;}
+            ],
             'aantal_plekken',
 
             ['class' => 'yii\grid\ActionColumn'],

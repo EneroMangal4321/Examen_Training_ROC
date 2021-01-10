@@ -41,4 +41,5 @@ class VasteTafel extends \yii\db\ActiveRecord
             'vrij' => 'Vrij',
         ];
     }
+
 }

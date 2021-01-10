@@ -53,12 +53,18 @@ class Tafel extends \yii\db\ActiveRecord
     #koppelling aan vaste tafels tabel om te kunnen kiezen welke tafel
     public function getVasteTafels()
     {
-        $this->hasOne(VasteTafel::className(), ['id' => 'vaste_tafel_id']);
+        return $this->hasOne(VasteTafel::className(), ['id' => 'vaste_tafel_id']);
     }
 
     #koppelling aan tabel reserveringen om een reservering aan een tafel te koppelen
     public function getReservering()
     {
-        $this->hasOne(Reservering::className(), ['id' => 'reservering_id']);
+        return $this->hasOne(Reservering::className(), ['id' => 'reservering_id']);
+    }
+
+    #koppelling aan tabel bestellingen om de bestellingen per tafel te kunnen zien
+    public function getBestelling()
+    {
+        return $this->hasOne(Bestelling::className(), ['tafel_id' => 'vaste_tafel_id']);
     }
 }
